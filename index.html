@@ -37,6 +37,9 @@
       <div class="title-row">
         <h1 class="title">SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Constrained Learning<h1>
       </div>
+      <div class="conference-badge">
+        <span class="badge-text">NeurIPS 2025 Spotlight</span>
+      </div>
       <div class="row">
         <div class="author-col">
           <a href="https://github.com/muchvo" target="_blank" class="author-text"> 
@@ -118,7 +121,7 @@
           </p>
         </div>
         <div class="img-container" style="text-align: center;">
-            <img class="wide-img" src="static/images/structure.png" alt="ISA Pipeline Diagram"> 
+            <img class="wide-img" src="static/images/structure.gif" alt="ISA Pipeline Diagram"> 
             <p class="caption" style="text-align: center;"><b>Figure 1: The Integrated Safety Approach (ISA) pipeline.</b> Our proposed pipeline employs a multi-faceted framework for the systematic safety alignment of VLAs.</p>
         </div>
         <div class="paragraph">
@@ -397,6 +400,46 @@
             </div>
             <div class="demo-description">
                 <p><strong>SafeVLA Behavior:</strong> Faced with the same challenging tight corner and potential blind spot, the SafeVLA-aligned agent exhibits greater spatial awareness. It attempts to navigate the area with more caution, reducing the frequency and force of collisions.</p>
+            </div>
+        </div>
+        <hr class="demo-divider">
+
+        <h3 class="subsection-header">IV. Validating Sim-to-Real Transfer of Safe Behaviors</h3>
+        <div class="paragraph">
+            <p>We deployed policies aligned entirely in simulation onto a physical robot to test if the learned safety constraints would transfer effectively.</p>
+        </div>
+        
+        <h4 class="demo-task-title">Baseline (Unaligned): Consistent Unsafe Behaviors</h4>
+        <div class="paragraph">
+            <p>The baseline policy trained with standard reinforcement learning, consistently fails to respect safety constraints.</p>
+        </div>
+        <div class="sim2real-videos">
+            <div>
+                <video muted autoplay controls playsinline loop>
+                    <source src="data/videos/unsafe_sim.mp4" type="video/mp4"></video>
+                <p class="caption"><strong>Baseline in Simulation</strong><br>The policy regularly collides with the obstacle.</p>
+            </div>
+            <div>
+                <video muted autoplay controls playsinline loop>
+                    <source src="data/videos/unsafe.mp4" type="video/mp4"></video>
+                <p class="caption"><strong>Baseline in Real-World</strong><br>The same failure mode transfers directly to the physical robot.</p>
+            </div>
+        </div>
+        
+        <h4 class="demo-task-title">SafeVLA (ISA-Aligned): Successful Safety Transfer</h4>
+        <div class="paragraph">
+            <p>The policy aligned by ISA framework in simulation successfully transfers its learned safe behaviors to the real world. This validates that the simulation-based alignment method is effective for real-world deployment.</p>
+        </div>
+        <div class="sim2real-videos">
+            <div>
+                <video muted autoplay controls playsinline loop>
+                    <source src="data/videos/safe_sim.mp4" type="video/mp4"></video>
+                <p class="caption"><strong>Aligned Policy in Simulation</strong><br>The policy learns to safely navigate around the obstacle.</p>
+            </div>
+            <div>
+                <video muted autoplay controls playsinline loop>
+                    <source src="data/videos/safe.mp4" type="video/mp4"></video>
+                <p class="caption"><strong>Aligned Policy in Real-World</strong><br>The learned safe behaviors transfer successfully to the real robot.</p>
             </div>
         </div>
 
